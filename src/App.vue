@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      Sobre
     </div>
-    <router-view/>
+    <h1>Makeanote</h1>
+    <p>A ideia é fazer um site onde seja possível adicionar notas que possam ser salvas na nuvem.
+      <br>Eventualmente implementar também a possibilidade de exportar notas, e fazer alterações colaborativas!
+    </p>
   </div>
 </template>
 
