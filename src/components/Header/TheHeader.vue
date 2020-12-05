@@ -1,7 +1,7 @@
 <template>
   <header>
       <nav>
-          <section class="headerSection">
+          <section class="headerSection" :style="getWidthOfDiv">
                 <a href="#">
                     <p>Home</p>
                 </a>
@@ -22,10 +22,23 @@
 
 <script>
 export default {
-
+    name: "header",
+    data() {
+        return {
+            offsetWidthMain: 0,
+        }
+    },
+    mounted () {
+        this.offsetWidthMain = document.getElementById('quickInfo').offsetWidth
+    },
+    computed: {
+        getWidthOfDiv() {
+            return `width: ${this.offsetWidthMain}px;`
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-    @import "./header.scss";
+    @import "./theHeader.scss";
 </style>

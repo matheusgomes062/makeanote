@@ -1,19 +1,31 @@
 <template>
-  <header>
-      <footer>
-          <section>
-              <link><p>FOOTER</p><link /><p>(index.html)</p>-<link><p>Contato</p>(mail)<link/>
-          </section>
-      </footer>
-  </header>
+    <footer>
+        <div :style="getWidthOfDiv">
+            <p>Email: matheusgomes062@gmail.com</p>
+        </div>
+    </footer>
 </template>
 
 <script>
 export default {
-
+    name: "footer",
+    data() {
+        return {
+            offsetWidthMain: 0,
+        }
+    },
+    mounted () {
+        this.offsetWidthMain = document.getElementById('quickInfo').offsetWidth
+    },
+    computed: {
+        getWidthOfDiv() {
+            return `width: ${this.offsetWidthMain}px;`
+        }
+    }
 }
 </script>
 
-<style>
 
+<style lang="scss" scoped>
+    @import "./theFooter.scss";
 </style>

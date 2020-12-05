@@ -20,32 +20,10 @@
         <tr>
           <th v-for="column in tableTitles" :key="column">{{ column }}</th>
         </tr>
-        <tr>
-          <td v-for="row in formations" :key="row">
-            <ul>
-              <li>
-                {{ row }}
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td v-for="row in qualifications" :key="row">
-            <ul>
-              <li>
-                {{ row }}
-              </li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td v-for="row in experiences" :key="row">
-            <ul>
-              <li>
-                {{ row }}
-              </li>
-            </ul>
-          </td>
+        <tr v-for="item in tableContent" :key="item.id">
+          <td><ul><li>{{item.formation}}</li></ul></td>
+          <td><ul><li>{{item.qualification}}</li></ul></td>
+          <td><ul><li>{{item.experience}}</li></ul></td>
         </tr>
       </table>
     </div>
@@ -61,31 +39,29 @@ export default {
   },
   data() {
     return {
-      about: "Trabalho como desenvolvedor Full Stack desde 2018 e atualmente estou me aprofundando em desenvolvimento web, .NET e DDD + Clean Code.<br/>Tenho familiaridade com as principais linguagens de programação web (HTML, CSS e JavaScript), além de possuir conhecimentos em API e Banco de Dados, utilizando ferramentas, como JQuery, PostgreSQL, SQL Server Manager e SQLite.<br/>Possuo também experiência em, linguagem C, C#, Git, SPA, SASS, Vuejs e mais recentemente React e React-Native. Além de ter cursos de SCRUM, Design Thinking, Inteligência Artificial e Web Design.<br/>Já escrevi durante quase um ano para um site de notícias relacionadas a Blockchain e Criptomoedas e contribuo ativamente para o dev.to, onde já consegui impactar mais de 17 mil pessoas com meus posts. Também fui membro, monitor e professor da área de Criatividade do Centro de Estudos em Games e Internet na UNIFESP.<br/>Por fim, sou viciado em trabalho, empreendedorismo e hackathons, sobre este último já participei de alguns e minha melhor posição foi quarto lugar na américa latina e segundo lugar no Brasil!",
+      about: "Trabalho como desenvolvedor Full Stack desde 2018 e atualmente estou me aprofundando em desenvolvimento web, .NET e DDD + Clean Code.</br>Por fim, sou viciado em trabalho, empreendedorismo e hackathons, sobre este último já participei de alguns e minha melhor posição foi quarto lugar na américa latina e segundo lugar no Brasil!",
 
       objective: "Um dia trabalhar numa empresa FANG (Facebook, Amazon, Netflix, Google), ou viajar pelo mundo gerindo minha própria empresa!",
 
       tableTitles: ["Formação", "Qualificação Técnica", "Experiências Profissinais"],
 
-      formations: [
-        "Ensino Médio Completo",
-        "Licenciatura em Matemática incompleto", 
-        "Bacharelado em Ciência e Tecnologia em curso"],
-        
-      qualifications: [
-        "VueJs", 
-        "ReactJs",
-        ".NET Core"],
-
-      experiences: [
-        "Redator Conteúdo Web",
-        "Full Stack Developer - Agrotools",
-        "Full Stack Engineer - Ânima Educação"],
+      tableContent: [
+        { formation: "Ensino Médio Completo", qualification: "VueJs", experience: "Redator Conteúdo Web"},
+        { formation: "Licenciatura em Matemática incompleto",  qualification: "ReactJs", experience: "Full Stack Developer - Agrotools"},
+        { formation: "Bacharelado em Ciência e Tecnologia em curso", qualification: ".NET Core", experience: "Full Stack Engineer - Ânima Educação"}
+      ],
+      offsetWidthMain: 0,
     };
   },
   mounted() {
+    this.offsetWidthMain = document.getElementById('quickInfo').offsetWidth
   },
   methods: {
+  },
+  computed: {
+    getWidthOfDiv() {
+        return `width: ${this.offsetWidthMain}px;`
+    }
   }
 };
 </script>
