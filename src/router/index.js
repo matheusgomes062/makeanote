@@ -8,26 +8,26 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/Home",
+    path: "/",
     name: "Home",
-    component: Home,
+    component: Home
   },
   {
     path: "/Atividade2",
     name: "Atividade2",
-    component: Atividade2,
+    component: Atividade2
   },
   {
     path: "/Atividade3",
     name: "Atividade3",
-    component: Atividade3,
-  },
+    component: Atividade3
+  }
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes,
+  routes
 });
 
 export default router;

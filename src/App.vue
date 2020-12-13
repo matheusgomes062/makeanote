@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import "./styles/global.scss";
 export default {
   components: {},
   data() {
@@ -12,6 +13,8 @@ export default {
   },
   created() {},
   destroyed() {},
-  methods: {},
+  methods: {}
 };
 </script>
+
+<style lang="scss"></style>
